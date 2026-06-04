@@ -28,6 +28,10 @@ public JWTOptions jwt {  get; set; }
 
         }
 
+
+
+
+
         [HttpGet]
         public  IActionResult GetAllEmployees()
         {
@@ -35,25 +39,15 @@ public JWTOptions jwt {  get; set; }
             return Ok("working from employees");
         }
 
-        [HttpGet("andDepartment")]
+        [HttpGet("users")]
        
-
-        public async Task<IActionResult> GetAllemployeesDepartments()
+        public async Task<IActionResult> GetAllUsers()
         {
-            var data =await Context.Users
-       .Include(u=>u.roles)
-        .Select(u => new UserDto
-        {
-            Id = u.Id,
-            Name = u.Name,
-            Email = u.email,
-            IsActived = u.isActived,
-            RoleId= u.RoleId,
-        })
-        .ToListAsync(); // ✅ This works!
-            var currentUser=HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
-
-            return Ok("currentUser working right now");
+         
+            return Ok("from users controller");
+           
+          
+            
         }
 
       
