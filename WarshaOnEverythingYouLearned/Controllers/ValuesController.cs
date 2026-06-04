@@ -36,7 +36,7 @@ public JWTOptions jwt {  get; set; }
         }
 
         [HttpGet("andDepartment")]
-        [Authorize]
+       
 
         public async Task<IActionResult> GetAllemployeesDepartments()
         {
@@ -53,7 +53,7 @@ public JWTOptions jwt {  get; set; }
         .ToListAsync(); // ✅ This works!
             var currentUser=HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
 
-            return Ok(currentUser);
+            return Ok("currentUser working right now");
         }
 
       
