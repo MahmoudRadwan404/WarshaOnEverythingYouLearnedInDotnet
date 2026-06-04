@@ -32,7 +32,7 @@ public JWTOptions jwt {  get; set; }
         public  IActionResult GetAllEmployees()
         {
            // var employees = await Context.Employees.ToListAsync();
-            return Ok();
+            return Ok("working from employees");
         }
 
         [HttpGet("andDepartment")]
